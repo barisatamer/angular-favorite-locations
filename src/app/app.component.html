@@ -1,3 +1,42 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <span>My Favorite Locations</span>
+  <span class="spacer"></span>
+</md-toolbar>
+
+
+
+<!-- item menu -->
+<md-menu #itemMenu="mdMenu">
+  <button md-menu-item (click)="delete()">
+    <md-icon> delete </md-icon>
+    <span> Delete </span>
+    </button>
+</md-menu>
+
+<md-grid-list cols="4" rowHeight="100px">
+
+  <md-grid-tile
+    *ngFor="let location of locations"
+    [colspan]="1"
+    [rowspan]="1"
+    [style.background]=""
+    style="cursor: pointer"
+  >
+
+    <div (click)="showDetail(location)" ><img src="{{location.imgUrl}}"></div>
+
+    <md-grid-tile-footer class="short-desc">
+      <h3>{{location.name}}</h3>
+      <span class="spacer"></span>
+      <button md-button [mdMenuTriggerFor]="itemMenu" (click)="selectedLocation = location">
+        <md-icon>more_vert</md-icon>
+      </button>
+    </md-grid-tile-footer>
+
+  </md-grid-tile>
+</md-grid-list>
+
+<button md-fab class="md-fab-bottom-right" (click)="openAddLocationDialog()">
+  <md-icon class="md-24">add</md-icon>
+</button>
+

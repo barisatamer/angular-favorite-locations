@@ -2,13 +2,39 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MyLocations</title>
+  <title>My Locations</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 </head>
+
 <body>
   <app-root>Loading...</app-root>
+
+  <script>
+    function initMap(_lat, _long) {
+      var myLatLng = {lat: _lat , lng: _long};
+      // Create a map object and specify the DOM element for display.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: myLatLng,
+        scrollwheel: false,
+        zoom:14
+      });
+
+      // Create a marker and set its position.
+      var marker = new google.maps.Marker({
+        map: map,
+        position: myLatLng,
+        title: 'Hello World!'
+      });
+
+    }
+
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJd7giSyfUY4cjW3Y-u2l4oGghrkrhLA" async defer></script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<p md-dialog-title>{{myLocation.name}}</p>
+
+<md-tab-group (selectChange)="onSelectChange($event)">
+  <md-tab label="Image">
+    <img src="{{myLocation.imgUrl}}">
+  </md-tab>
+
+
+  <md-tab label="Map">
+    <div id="map" style="width: 500px; height: 400px;"></div>
+  </md-tab>
+</md-tab-group>
+
+
+
+
+
+
+
